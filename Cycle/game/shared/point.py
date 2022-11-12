@@ -8,10 +8,10 @@ class Point:
         _x (integer): The horizontal distance from the origin.
         _y (integer): The vertical distance from the origin.
     """
-    
+
     def __init__(self, x, y):
         """Constructs a new Point using the specified x and y values.
-        
+
         Args:
             x (int): The specified x value.
             y (int): The specified y value.
@@ -41,11 +41,13 @@ class Point:
         Returns: 
             boolean: True if both x and y are equal; false if otherwise.
         """
+        print(self._x, self._y)
+        print(other.get_x(), other.get_y())
         return self._x == other.get_x() and self._y == other.get_y()
 
     def get_x(self):
         """Gets the horizontal distance.
-        
+
         Returns:
             integer: The horizontal distance.
         """
@@ -53,7 +55,7 @@ class Point:
 
     def get_y(self):
         """Gets the vertical distance.
-        
+
         Returns:
             integer: The vertical distance.
         """
@@ -75,7 +77,7 @@ class Point:
 
         Args:
             factor (int): The amount to scale.
-            
+
         Returns:
             Point: A new Point that is scaled.
         """

@@ -49,8 +49,12 @@ class Snake(Actor):
             segment.set_color(color)
             self._segments.append(segment)
 
+        return self
+
     def turn_head(self, velocity):
-        self._segments[0].set_velocity(velocity)
+        self._segments[1].set_velocity(velocity)
+
+        return self
 
     def _prepare_body(self, a, b, bcolor):
 
