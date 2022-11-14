@@ -19,8 +19,8 @@ def main():
 
     # create the cast
     cast = Cast()
-    cast.add_actor("snake", Snake(100, 300, constants.GREEN))
-    cast.add_actor("snake2", Snake(770, 300, constants.RED))
+    cast.add_actor("player_one", Snake(100, 300, constants.GREEN))
+    cast.add_actor("player_two", Snake(770, 300, constants.RED))
     cast.add_actor("scores", Score())
 
     # start the game

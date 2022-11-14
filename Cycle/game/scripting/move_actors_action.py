@@ -21,8 +21,8 @@ class MoveActorsAction(Action):
         for actor in actors:
             actor.move_next()
 
-        snake1 = cast.get_first_actor("snakes")
-        snake2 = cast.get_second_actor("snakes")
+        snake1 = cast.get_first_actor("player_one")
+        snake2 = cast.get_first_actor("player_two")
 
         if script.get_actions("update")[1]._is_game_over:
             snake1.grow_tail(1, constants.WHITE)
@@ -30,8 +30,8 @@ class MoveActorsAction(Action):
 
         else:
 
-            snake1 = cast.get_first_actor("snakes")
-            snake2 = cast.get_second_actor("snakes")
+            snake1 = cast.get_first_actor("player_one")
+            snake2 = cast.get_first_actor("player_two")
 
             snake1.grow_tail(1, constants.RED)
             snake2.grow_tail(1, constants.GREEN)
