@@ -6,14 +6,10 @@ ROWS = 20
 CELL_SIZE = 15
 MAX_X = 900
 MAX_Y = 600
-FRAME_RATE = 5
+FRAME_RATE = 15
 FONT_SIZE = 15
 CAPTION = "Cycle"
-<<<<<<< HEAD
-SNAKE_LENGTH = 5
-=======
 CYCLE_LENGTH = 8
->>>>>>> PlayerTwo
 WHITE = Color(255, 255, 255)
 RED = Color(255, 0, 0)
 YELLOW = Color(255, 255, 0)

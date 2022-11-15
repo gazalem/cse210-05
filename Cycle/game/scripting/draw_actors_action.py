@@ -4,7 +4,7 @@ from game.scripting.action import Action
 class DrawActorsAction(Action):
     """
     An output action that draws all the actors.
-
+    
     The responsibility of DrawActorsAction is to draw all the actors.
 
     Attributes:
@@ -13,7 +13,7 @@ class DrawActorsAction(Action):
 
     def __init__(self, video_service):
         """Constructs a new DrawActorsAction using the specified VideoService.
-
+        
         Args:
             video_service (VideoService): An instance of VideoService.
         """
@@ -27,17 +27,6 @@ class DrawActorsAction(Action):
             script (Script): The script of Actions in the game.
         """
         score = cast.get_first_actor("scores")
-<<<<<<< HEAD
-        snake = cast.get_first_actor("player_one")
-        segments = snake.get_segments()
-        snake2 = cast.get_first_actor("player_two")
-        segments2 = snake2.get_segments()
-        messages = cast.get_actors("messages")
-
-        self._video_service.clear_buffer()
-
-        self._video_service.draw_actors(segments)
-=======
         player_one = cast.get_first_actor("player_one")
         player_two = cast.get_first_actor("player_two")
         player_one_segments = player_one.get_segments()
@@ -47,7 +36,6 @@ class DrawActorsAction(Action):
         self._video_service.clear_buffer()
         self._video_service.draw_actors(player_one_segments)
         self._video_service.draw_actors(player_two_segments)
->>>>>>> PlayerTwo
         self._video_service.draw_actor(score)
         self._video_service.draw_actors(messages, True)
         self._video_service.flush_buffer()
