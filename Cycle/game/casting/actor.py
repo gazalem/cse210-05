@@ -1,4 +1,5 @@
 import constants
+import pyray
 from game.shared.color import Color
 from game.shared.point import Point
 
@@ -21,6 +22,7 @@ class Actor:
         """Constructs a new Actor."""
         self._text = ""
         self._font_size = 15
+        self._font_family = pyray.load_font_ex("resources/PressStart2P-Regular.ttf", 40, 0, 0)
         self._color = Color(255, 255, 255)
         self._position = Point(0, 0)
         self._velocity = Point(0, 0)
