@@ -20,8 +20,13 @@ class ControlActorsAction(Action):
             keyboard_service (KeyboardService): An instance of KeyboardService.
         """
         self._keyboard_service = keyboard_service
+<<<<<<< HEAD
         self._direction = Point(0, -constants.CELL_SIZE)
         self._direction2 = Point(0, -constants.CELL_SIZE)
+=======
+        self._player_one_direction = Point(0, -constants.CELL_SIZE)
+        self._player_two_direction = Point(0, -constants.CELL_SIZE)
+>>>>>>> PlayerTwo
 
     def execute(self, cast, script):
         """Executes the control actors action.
@@ -29,8 +34,11 @@ class ControlActorsAction(Action):
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
+        # Player One - Controls
+
         # left
         if self._keyboard_service.is_key_down('a'):
+<<<<<<< HEAD
             self._direction = Point(-constants.CELL_SIZE, 0)
 
         # right
@@ -63,3 +71,42 @@ class ControlActorsAction(Action):
 
         player_two = cast.get_first_actor("player_two")
         player_two.turn_head(self._direction2)
+=======
+            self._player_one_direction = Point(-constants.CELL_SIZE, 0)
+        
+        # right
+        if self._keyboard_service.is_key_down('d'):
+            self._player_one_direction = Point(constants.CELL_SIZE, 0)
+        
+        # up
+        if self._keyboard_service.is_key_down('w'):
+            self._player_one_direction = Point(0, -constants.CELL_SIZE)
+        
+        # down
+        if self._keyboard_service.is_key_down('s'):
+            self._player_one_direction = Point(0, constants.CELL_SIZE)
+        
+        player_one = cast.get_first_actor("player_one")
+        player_one.turn_head(self._player_one_direction)
+
+        # Player Two - controls
+
+        # left
+        if self._keyboard_service.is_key_down('j'):
+            self._player_two_direction = Point(-constants.CELL_SIZE, 0)
+        
+        # right
+        if self._keyboard_service.is_key_down('l'):
+            self._player_two_direction = Point(constants.CELL_SIZE, 0)
+        
+        # up
+        if self._keyboard_service.is_key_down('i'):
+            self._player_two_direction = Point(0, -constants.CELL_SIZE)
+        
+        # down
+        if self._keyboard_service.is_key_down('k'):
+            self._player_two_direction = Point(0, constants.CELL_SIZE)
+        
+        player_two = cast.get_first_actor("player_two")
+        player_two.turn_head(self._player_two_direction)
+>>>>>>> PlayerTwo
