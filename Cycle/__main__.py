@@ -17,16 +17,16 @@ from game.shared.point import Point
 
 def main():
     
-
+    # Create both instances of the snakes or cycles
     player_one = Snake(Point(int(constants.MAX_X - 675), int(constants.MAX_Y / 2)))
     player_one.set_cycle_color(constants.RED)
     player_two = Snake(Point(int(constants.MAX_X - 225), int(constants.MAX_Y / 2)))
     player_two.set_cycle_color(constants.GREEN)
+
     # create the cast
     cast = Cast()
     cast.add_actor("player_one", player_one)
     cast.add_actor("player_two", player_two)
-    # cast.add_actor("player_two", Food())
     cast.add_actor("scores", Score())
    
     # start the game
