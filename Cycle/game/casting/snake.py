@@ -37,7 +37,7 @@ class Snake(Actor):
     def get_head(self):
         return self._segments[0]
 
-    def grow_tail(self, number_of_segments=1):
+    def grow_tail(self, number_of_segments=0):
         for i in range(number_of_segments):
             tail = self._segments[-1]
             velocity = tail.get_velocity()

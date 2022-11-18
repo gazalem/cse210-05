@@ -68,7 +68,7 @@ class HandleCollisionsAction(Action):
 
         for second_segment in second_segments:
             if head.get_position().equals(second_segment.get_position()):
-                self._player_two_win = True
+                self._is_game_over = True
 
     def _handle_game_over(self, cast):
         """Shows the 'game over' message and turns the player_one and player_two white if the game is over.
