@@ -3,10 +3,11 @@ from game.casting.actor import Actor
 from game.scripting.action import Action
 from game.shared.point import Point
 
+
 class HandleCollisionsAction(Action):
     """
     An update action that handles interactions between the actors.
-    
+
     The responsibility of HandleCollisionsAction is to handle the situation when the player_one collides
     with the player_two, or the player_one collides with its segments, or the game is over.
 
@@ -32,7 +33,7 @@ class HandleCollisionsAction(Action):
 
     def _handle_player_two_collision(self, cast):
         """Updates the score nd moves the player_two if the player_one collides with the player_two.
-        
+
         Args:
             cast (Cast): The cast of Actors in the game.
         """
@@ -46,32 +47,32 @@ class HandleCollisionsAction(Action):
             player_one.grow_tail(points)
             score.add_points(points)
             player_two.reset()
-    
+
     def _handle_segment_collision(self, cast):
         """Sets the game over flag if the player_one collides with one of its segments.
-        
+
         Args:
             cast (Cast): The cast of Actors in the game.
         """
         player_one = cast.get_first_actor("player_one")
         head = player_one.get_segments()[0]
         segments = player_one.get_segments()[1:]
-        
+
         player_two = cast.get_first_actor("player_two")
         second_head = player_two.get_segments()[0]
         second_segments = player_two.get_segments()[1:]
-        
+
         for segment in segments:
             if second_head.get_position().equals(segment.get_position()):
                 self._is_game_over = True
-                
+
         for second_segment in second_segments:
             if head.get_position().equals(second_segment.get_position()):
                 self._player_two_win = True
-        
+
     def _handle_game_over(self, cast):
         """Shows the 'game over' message and turns the player_one and player_two white if the game is over.
-        
+
         Args:
             cast (Cast): The cast of Actors in the game.
         """
@@ -79,6 +80,7 @@ class HandleCollisionsAction(Action):
             player_one = cast.get_first_actor("player_one")
             segments = player_one.get_segments()
             player_two = cast.get_first_actor("player_two")
+            segments2 = player_two.get_segments()
 
             x = int(constants.MAX_X / 2)
             y = int(constants.MAX_Y / 2)
@@ -91,4 +93,6 @@ class HandleCollisionsAction(Action):
 
             for segment in segments:
                 segment.set_color(constants.WHITE)
-            player_two.set_color(constants.WHITE)
+
+            for segment in segments2:
+                segment.set_color(constants.WHITE)
