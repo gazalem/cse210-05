@@ -1,5 +1,6 @@
 import constants
 from game.casting.actor import Actor
+from game.casting.game_over_message import GameOverMessage
 from game.scripting.action import Action
 from game.shared.point import Point
 
@@ -88,8 +89,7 @@ class HandleCollisionsAction(Action):
             y = int(constants.MAX_Y / 2)
             position = Point(x, y)
 
-            message = Actor()
-            message.set_text("Game Over!")
+            message = GameOverMessage()
             message.set_position(position)
             cast.add_actor("messages", message)
 
